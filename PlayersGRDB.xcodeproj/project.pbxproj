@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		871BB8352CF25F28000B70B8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 871BB8342CF25F22000B70B8 /* README.md */; };
 		87B61F552CF26180007B182F /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 87B61F542CF26180007B182F /* GRDB */; };
+		87B61F852CF266C0007B182F /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 87B61F842CF266C0007B182F /* GRDB */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87B61F852CF266C0007B182F /* GRDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +108,7 @@
 			);
 			name = PlayersGRDB;
 			packageProductDependencies = (
+				87B61F842CF266C0007B182F /* GRDB */,
 			);
 			productName = PlayersGRDB;
 			productReference = 871BB8062CF25F06000B70B8 /* PlayersGRDB.app */;
@@ -504,6 +507,11 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		87B61F542CF26180007B182F /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 87B61F522CF2615A007B182F /* XCRemoteSwiftPackageReference "GRDB" */;
+			productName = GRDB;
+		};
+		87B61F842CF266C0007B182F /* GRDB */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 87B61F522CF2615A007B182F /* XCRemoteSwiftPackageReference "GRDB" */;
 			productName = GRDB;
