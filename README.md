@@ -159,6 +159,7 @@ extension AppDatabase {
             try player.save(db)
         }
     }
+}
 ```
 ### Add a very basic reader
 Add this to our AppDatabase file
