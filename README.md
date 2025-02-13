@@ -9,13 +9,27 @@ The best place to start is always the beginning.
 ---
 
 ## Part 1.  The basics
-### The first thing we need is a test we want to pass.
-We add these tests so we can get all the basics going.  Once we can build and pass all these tests we'll be able to
+
+### Things that will be accomplished
 
 1. Make a database 
 2. Make a `Player`
 3. Save that `Player` to the database
 4. Read information about the `Player` from our created database.
+
+### Add the package dependency
+The dependency can be added to the project in XCode by going to
+
+File -> Add package dependency
+
+Enter the github url for the package in the search bar and install
+https://github.com/groue/GRDB.swift
+
+
+### Make a test we want to pass.
+We add these tests so we can get all the basics going.  Once we can build and pass all these tests we'll be able to
+
+Remember to add GRDB to your app's testing target as well or you'll get an error on the import GRDB line.
 
 ``` swift
 import Testing
@@ -58,6 +72,10 @@ Of course just adding that to our tests files, pretty much every one of those li
 ### The beginnings of the `AppDatabase` class.
 The basics of a database are the `Writer` and a `Migrator` which depends upon that `Writer`.  The `Migrator` should make it so that whenever we make changes to our database, we can migrate from the old version to the new one without any problems.
 
+Make sure GRDB is also added to the app target in the general tab of the app under Frameworks, Libraries, and Embedded Content.
+
+Let's make a Database folder in our main app folder and add a file named AppDatabase.  Add the following code to that file.
+
 ``` swift
 import Foundation
 import GRDB
@@ -92,7 +110,7 @@ final class AppDatabase: Sendable {
 ```
 
 ### AppDatabase `makeConfiguration` function
-This extension is added to our `AppDatabase` to fullfill our need for a configuration
+This extension is added to our `AppDatabase` file to fullfill our need for a configuration
 
 ``` swift
 extension AppDatabase {
@@ -104,6 +122,8 @@ extension AppDatabase {
 
 ###  `Player` model
 We also need a very basic `Player` model so we have something to test.
+
+Make a folder called `Models` in our `Database` folder and add a new file called `Player`.  Add the following code to that file.
 
 ``` swift
 import GRDB
@@ -118,6 +138,8 @@ struct Player: Equatable {
 ### Necessary player conformance
 
 In our first test, we wish to be able to save a player to our database, so we need the type to conform to `Codable` `FetchableRecord` and `MutablePersistableRecord`.  This also defines our table columns and gives us the `didInsert` function.
+
+Within the `Player` file add the following.
 
 ``` swift
 extension Player: Codable, FetchableRecord, MutablePersistableRecord {
